@@ -320,5 +320,63 @@ function traverse(){
     });
 }
 ```
+## 15.css display属性
+- block :　块对象的默认值。将对象强制作为块对象呈递，为对象之后添加新行(换行符)   可以定义高度和宽度
+- none :　隐藏对象。与 visibility 属性的hidden值不同，其不为被隐藏的对象保留其物理空间
+- inline :　内联对象的默认值。将对象强制作为内联对象呈递，从对象中删除行，元素前后没有换行符
+- inline-block :　IE5.5 将对象呈递为内联对象，但是对象的内容作为块对象呈递。<br>
+旁边的内联对象会被呈递在同一行内 
+- inherit: 看display默认是不具备继承性的，使用inherit可以让其继承父对象的display属性。
+## 16. css overflow属性
+- 参数是scroll时候，必会出现滚动条。
+- 参数是auto时候，子元素内容大于父元素时出现滚动条。
+- 参数是visible时候，溢出的内容出现在父元素之外。
+- 参数是hidden时候，溢出隐藏。
+## 17. <a>的target属性
+例如<a href="/XXXX"  target="_blank" >打开新的网页</a>
+- _blank: 以新弹出一个浏览器窗口打开一个新链接页面；
+- _self: 在原有的浏览器窗口打开新连接的页面；
+- _parent: 在父框架集中打开被链接文档
+- _top: 在整个窗口中打开被链接文档。
+- 若<form>和<a>标签同时出现该属性，form中的target起作用；
+## 18. flash js 交互
+- Flash提供了ExternalInterface接口与JavaScript通信
+- ExternalInterface有两个方法，call和addCallback，**call**的作用是让Flash调用js里的方法，**addCallback**是用来注册flash函数让js调用。
+## 19.css position
+- static: 没有定位，可以用position:static取消继承，即还原元素定位的默认值
+- absolute: 生成绝对定位的元素，相对于 static 定位以外的第一个祖先元素进行定位。
+- fixed: 相对于窗口的固定定位
+- relative: 生成相对定位的元素，相对于元素本身正常位置进行定位。
+## 20.浏览器模式
+- 标准模式：浏览器根据规范呈现页面
+- 混杂模式：页面以一种比较宽松的向后兼容的方式显示
+DOCTYPE不存在或格式不正确会导致文档以混杂模式呈现
+浏览器根据DOCTYPE是否存在以及使用的哪种DTD来选择要使用的呈现方法
+## 21.CSS sprites
+- 允许你将一个页面涉及到的所有零星图片都包含到一张大图中去
+- 利用CSS的“background-image”，“background-repeat”，“background-position”的组合进行背景定位
+- CSS Sprites减少了总的图片的字节，很好地减少网页的http请求，从而大大的提高页面的性能
+- CSS Sprites整理起来更为方便，同一个按钮不同状态的图片也不需要一个个切割出来并个别命名
+## 22.浏览器内核引擎
+- **WebKit**: Safari, Google Chrome,傲游3,猎豹浏览器,百度浏览器 opera浏览器<br>
+私有属性：-webkit
+- **Trident**: IE<br>
+私有属性：-ms
+- **Gecko**: Firefox <br>
+私有属性：-moz
+- 搜狗浏览器是双核的，双核并不是指一个页面由2个内核同时处理,而是所有网页（通常是标准通用标记语言的应用超文本标记语言）由webkit内核处理,只有银行网站用IE内核
+## 23.HTML5语义化标签
+- 结构元素
+**<header>: **网页或section的页眉<br>
+**<footer>: **页脚<br>
+**<hgroup>: **连续多个h1...h6<br>
+**<nav>: **用于主要导航部分<br>
+**<aside>: **在article内表示附属信息，在article外可做侧边栏<br>
+**<section>: **文章的节或段，article、nav、aside可以理解为特殊的section
+**<address>: **代表区块容器，必须是作为联系信息出现，邮编地址、邮件地址等等,一般出现在footer
+## 24.
+
+
+
 
 
