@@ -291,6 +291,34 @@ div{
 	margin-left : -150px;  
 }
 ```
-## 14.
+## 14.写一个traverse函数，输出所有页面宽度和高度大于50像素的节点。
+```javascript
+function traverse(oNode) {
+    var aResult = [];
+    oNode = oNode || document.body;
+    if (oNode.style) {
+        var nWidth = window.parseInt(oNode.style.width, 10) || 0;
+        var nHeight = window.parseInt(oNode.style.height, 10) || 0;
+        if (nWidth > 50 && nHeight > 50) {
+            aResult.push(oNode);
+        }
+    }
+    var aChildNodes = oNode.childNodes;
+    if (aChildNodes.length > 0) {
+        for (var i = 0, l = aChildNodes.length; i < l; i++) {
+            var oTmp = aChildNodes[i];
+            aResult = aResult.concat(traverse(oTmp));
+        }
+    }
+    return aResult;
+}
+```
+```javascript
+function traverse(){
+    return Array.prototype.filter.call(document.querySelectorAll('body *'), function(node){
+        return node.offsetWidth > 50 && node.offsetHeight > 50;
+    });
+}
+```
 
 
