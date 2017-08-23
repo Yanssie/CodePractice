@@ -389,7 +389,29 @@ var arr = str.match(/\d+/g);
 'i'：为 ignore case，即 忽略大小写。<br>
 'g'：为 global search，即全局搜索。<br>
 'm'：为 multi-line search，即多行搜索。<br>
-
-
+- 支持正则表达式的 String 对象的方法
+str.search(/Html5/i) <br>
+str.match(/\d+/g)<br>
+str.replace()
+```javascript
+var pattern1 = "JS,HTML5,CSS";
+var replace1 = pattern1.replace(/(\w{1,}),(\w+)/, "$2,$1");
+console.log(replace1);//HTML5,JS,CSS
+```
+## 27. substring 与 substr
+string.substring(start,stop): 字符串 从 start 开始到 end-1 的所有字符。<br>
+string.substr(start,length): 第一个代表起始位置，第二个代表截取的长度
+## 28. 基本类型与引用类型
+基本类型变量的值是保存在栈（stack）中的简单数据段，也就是说，它们的值直接存储在变量访问的位置 <br>
+引用类型变量的值是保存在堆（heap）中的对象
+## 29.Cookie
+localStorage和Web Sqls是将数据保存在客户端，不跟服务端交互；<br>
+而Cookie是页面跟服务器端互相传递信息<br>
+浏览器保存的 cookie 是字符串 `typeof window.document.cookie //string`<br>
+```javascript
+window.document.cookie="name=guwei"; //名称
+window.document.cookie="a=1; s=2; d=3;"; // 只有 a = 1 会被写入，值需要URI编码后处理
+```
+## 30.
 
 
