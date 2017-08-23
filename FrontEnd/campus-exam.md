@@ -30,7 +30,26 @@ var name = 'World!';
 
 ```
 //Goodbye Jack
-## 4.事件流阶段
+## 4.事件流阶段，事件对象
+###事件对象
+- 访问event
+`IE`: event对象作为window对象的一个属性存在<br>
+`其他浏览器`：直接访问
+```javascript
+function(event){
+    return event || window.event
+}
+```
+- 取消冒泡：
+`IE`: cancelBubble=true就可以取消冒泡<br>
+`其他浏览器`: event.stopPropagation()就ok了
+- 取消默认行为：
+`IE`: returnValue =false
+`其他浏览器`: event.preventDefault()
+- 事件的目标元素：
+`IE`: srcElement 来获取事件的目标元素
+`其他浏览器`: target 来获取事件的目标元素
+### 事件流阶段
 - 捕获阶段：addListener设为true
 - 处于目标阶段
 - 冒泡阶段：addListener设为false<br>
