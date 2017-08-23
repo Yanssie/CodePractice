@@ -1,4 +1,5 @@
-reference占4个字节 
+reference占4个字节 <br>
+[!image](https://github.com/Yanssie/CodePractice/raw/master/image/LinedList.png)
 - 使用dummy node时，定义完dummy.next = head; 一定要将dummy赋给一个ref （head或叫做node）
 - reverse时
 要注意reverse和connect<br>
