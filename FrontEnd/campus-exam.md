@@ -354,13 +354,13 @@ DOCTYPE不存在或格式不正确会导致文档以混杂模式呈现
 - 搜狗浏览器是双核的，双核并不是指一个页面由2个内核同时处理,而是所有网页（通常是标准通用标记语言的应用超文本标记语言）由webkit内核处理,只有银行网站用IE内核
 ## 23.HTML5语义化标签
 - 结构元素
-<header>: 网页或section的页眉<br>
-<footer>: 页脚<br>
-<hgroup>: 连续多个h1...h6<br>
-<nav>: 用于主要导航部分<br>
-<aside>: 在article内表示附属信息，在article外可做侧边栏<br>
-<section>: 文章的节或段，article、nav、aside可以理解为特殊的section
-<address>: 代表区块容器，必须是作为联系信息出现，邮编地址、邮件地址等等,一般出现在footer
+header: 网页或section的页眉<br>
+footer: 页脚<br>
+hgroup: 连续多个h1...h6<br>
+nav: 用于主要导航部分<br>
+aside: 在article内表示附属信息，在article外可做侧边栏<br>
+section: 文章的节或段，article、nav、aside可以理解为特殊的section<br>
+address: 代表区块容器，必须是作为联系信息出现，邮编地址、邮件地址等等,一般出现在footer<br>
 ## 24.css伪类选择器
 伪类选择器之前只能有一个：
 **a元素**
@@ -431,6 +431,35 @@ localStorage和Web Sqls是将数据保存在客户端，不跟服务端交互；
 window.document.cookie="name=guwei"; //名称
 window.document.cookie="a=1; s=2; d=3;"; // 只有 a = 1 会被写入，值需要URI编码后处理
 ```
-## 30.
+## 30.闭包
+**内部函数的作用域链引用着外部函数活动变量**<br>
+因为浏览器的自动垃圾回收机制，被内部函数的作用域链指针引用着的内部变量，会**一直存在与内存中**,不会被回收，这就是闭包的原理<br>
+**存在原因**：<br>
+JavaScript中因为有作用域链的存在，`在函数内部的变量在函数外部是无法访问的`，在函数内部却可以得到外部变量。但是有时因为程序的需要，我们希望在外部函数访问到函数内部的变量，这就需要创建一种特殊的闭包来解决这个难题。
+```javascript
+function outer() {
+    var i = 5;
+    return function inner() {
+        alert(++i);
+    }
+}
+var c = outer();
+c();  //6
+c();  //7
+```
+```javascript
+var age = 21;
+    var o = (function(){
+        var age=23;
+        return{
+            setAge : function(){
+                alert(++age);
+            }
+        }
+    }());
+    o.setAge(); //24
+    o.setAge(); //25
+```
+结论：能创建新的作用域的就是闭包。而其中将内部函数返回，**函数外部只能通过内部返回的方法才能访问内部var变量的闭包**，能实现对内部var变量很好的封装，所以面试中经常会被问到此种闭包
 
 
