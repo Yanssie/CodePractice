@@ -126,70 +126,38 @@ var instance = new Test('alibaba',102);
 function range(){
     
 	var argLength = arguments.length,
-	
 	    newArray = [],
-	
 	    i = 0,
-	
 	    start = arguments[0],
-	
 	    stop = arguments[1],
-	
 	    step = arguments[2];
-	
 	switch(argLength){
-	
 		case 0 : throw Error('至少输入一个参数,限止数组在哪里结束');
-		
 		case 1 : {
-		
 		    stop = arguments[0];
-		    
 		    for( i = 0 ; i < stop ; i++){
-		    
 		    	newArray.push(i);
-		    	
 		    }
-		    
 		    return newArray;
-		    
 		}
-		
 		case 2 : {
-		
 		    for( i = start ; i < stop ; i++){
-		    
 		    	newArray.push(i);
-		    	
 		    }
-		    
 		    return newArray;
-		    
 		}
-		
 		case 3 : {
-		    
 		    if(step < 1) {
-		    
 		        throw Error('step > 1');
-		
 		    }else{
-		    
 			for( i = start ; i < stop ; i += step){
-		    
 		    		newArray.push(i);
-		    		
 		    	}
-		    	
 		    	return newArray;
 		    }
-		
 		}
-		
 		default : throw Error('最多传入三个参数');
-		
 	}
-	
 }
 ```
 ## 10.消息处理器
@@ -367,15 +335,52 @@ DOCTYPE不存在或格式不正确会导致文档以混杂模式呈现
 - 搜狗浏览器是双核的，双核并不是指一个页面由2个内核同时处理,而是所有网页（通常是标准通用标记语言的应用超文本标记语言）由webkit内核处理,只有银行网站用IE内核
 ## 23.HTML5语义化标签
 - 结构元素
-**<header>: **网页或section的页眉<br>
-**<footer>: **页脚<br>
-**<hgroup>: **连续多个h1...h6<br>
-**<nav>: **用于主要导航部分<br>
-**<aside>: **在article内表示附属信息，在article外可做侧边栏<br>
-**<section>: **文章的节或段，article、nav、aside可以理解为特殊的section
-**<address>: **代表区块容器，必须是作为联系信息出现，邮编地址、邮件地址等等,一般出现在footer
-## 24.
-
+- <header>: 网页或section的页眉<br>
+- <footer>: 页脚<br>
+- <hgroup>: 连续多个h1...h6<br>
+- <nav>: 用于主要导航部分<br>
+- <aside>: 在article内表示附属信息，在article外可做侧边栏<br>
+- <section>: 文章的节或段，article、nav、aside可以理解为特殊的section
+- <address>: 代表区块容器，必须是作为联系信息出现，邮编地址、邮件地址等等,一般出现在footer
+## 24.css伪类选择器
+伪类选择器之前只能有一个：
+**a元素**
+- 由于CSS优先级的关系(后面比前面的优先级高)，在写a的CSS时，一定要按照a:link， a:visited， a:hover， a:actived的顺序书写<br>
+- 遵守一个“爱恨原则”LoVe/HAte, 也就是link-visited-hover-active.
+**form元素**
+:enabled 选择器选取所有启用的表单元素。<br>
+:disabled 选择器选取所有禁用的表单元素。<br>
+:checked 选择器选取所有选中的复选框或单选按钮。<br>
+## 25.数组方法
+- 不改变原数组的方法：concat()、slice()、join()、toString()、valueOf()
+- 改变原数组的方法：pop() 、push()、reverse()、shift()、unshift()、sort()、splice()
+1. array.length: 可读可写，如果设置的值比其当前值小，其底部的元素将被截断。<br>
+如果设置的值比它的当前值大，新增的元素被添加到数组的尾部，并且值为 undefined。
+2. arrayObject.slice(start,end): 不包括end
+3. arrayObject.splice(index, howmany, element1, ….., elementX)
+4. var a  = [1,2,3];<br>
+ a.join(); // "1,2,3" <br>
+ a.join('-') // "1-2-3"
+5. sort()<br>
+- 当不带参数调用 sort()方法时，数组元素以字母顺序排序
+- 为了按照其他方式而非字母表顺序进行排序，必须给sort()方法传递一个比较函数。假设如果想让第一个参数在前，比较函数应该返回一个小于0的数
+```javascript
+var arr = [10,5,40,25,1000,1];
+function sortNumber(a,b)
+{
+  return a - b;
+}
+console.log(arr);  //["10", "5", "40", "25", "1000", "1"]
+console.log(arr.sort());  //["1", "10", "1000", "25", "40", "5"]
+console.log(arr.sort(sortNumber));  //["1", "5", "10", "25", "40", "1000"]
+```
+- JavaScript里面，没有原生的方法来区别Array和Object，一般可以通过下面的方法来识别数组：
+```javascript
+var isArray = function(value){
+  return Object.prototype.toString.apply(value) === '[object Array]';
+}
+```
+## 26.正则表达式
 
 
 
