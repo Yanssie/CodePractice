@@ -335,13 +335,13 @@ DOCTYPE不存在或格式不正确会导致文档以混杂模式呈现
 - 搜狗浏览器是双核的，双核并不是指一个页面由2个内核同时处理,而是所有网页（通常是标准通用标记语言的应用超文本标记语言）由webkit内核处理,只有银行网站用IE内核
 ## 23.HTML5语义化标签
 - 结构元素
-- <header>: 网页或section的页眉<br>
-- <footer>: 页脚<br>
-- <hgroup>: 连续多个h1...h6<br>
-- <nav>: 用于主要导航部分<br>
-- <aside>: 在article内表示附属信息，在article外可做侧边栏<br>
-- <section>: 文章的节或段，article、nav、aside可以理解为特殊的section
-- <address>: 代表区块容器，必须是作为联系信息出现，邮编地址、邮件地址等等,一般出现在footer
+<header>: 网页或section的页眉<br>
+<footer>: 页脚<br>
+<hgroup>: 连续多个h1...h6<br>
+<nav>: 用于主要导航部分<br>
+<aside>: 在article内表示附属信息，在article外可做侧边栏<br>
+<section>: 文章的节或段，article、nav、aside可以理解为特殊的section
+<address>: 代表区块容器，必须是作为联系信息出现，邮编地址、邮件地址等等,一般出现在footer
 ## 24.css伪类选择器
 伪类选择器之前只能有一个：
 **a元素**
@@ -381,6 +381,14 @@ var isArray = function(value){
 }
 ```
 ## 26.正则表达式
+在一串包含数字以及英文字母的字符串中中找出数字并保存在数组中。
+```javascript
+var arr = str.match(/\d+/g);
+```
+- 匹配模式
+'i'：为 ignore case，即 忽略大小写。<br>
+'g'：为 global search，即全局搜索。<br>
+'m'：为 multi-line search，即多行搜索。<br>
 
 
 
