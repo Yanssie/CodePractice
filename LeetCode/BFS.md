@@ -6,6 +6,10 @@ Binary Tree Level Order Traversal，使用队列作为主要的数据结构
     - size() <br>
 LinkedList是queue的实现
 - Collections.reverse(list) 将数组顺序反向，改变原数组
+- Treverse in Zigzag level order <br>
+Use two stack(curr and next), cannot use queue. <br>
+Use a boolean normalOrder.
+
 ### 2.Binary Tree Serialization 序列化
 - Object to String <br>
 应用场景：将内存中的数据写入硬盘；网络传输，接收方将字符串解析后存入内存；<br>
