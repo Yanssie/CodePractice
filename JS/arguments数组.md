@@ -12,14 +12,31 @@ function useArguments() {
 }
 ```
 ### 把arguments伪数组转为数组
-**Array.prototype.slice.call(arguments)**
+**Array.prototype.slice.call(arguments)** <br>
+或**[].slice.call(arguments)**
 ```javascript
 function useArguments() {
     var arr = Array.prototype.slice.call(arguments);
+    // var arr = [].slice.call(arguments);
     var sum = 0;
     arr.forEach(function(a) {
         sum += a;
     })
     return sum;
 }
+```
+### 解释
+```javascript
+function f(a, b, c){
+    alert(arguments.length);   // result: "2"
+    a = 100;
+    alert(arguments[0]);       // result: "100"
+    arguments[0] = "haorooms";
+    alert(a);                  // result: "haorooms"
+    alert(c);                  // result: "undefined"
+    c = 2016;
+    alert(arguments[2]);       // result: "undefined"
+}
+
+f(1, 2);
 ```
