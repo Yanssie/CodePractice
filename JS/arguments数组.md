@@ -40,3 +40,6 @@ function f(a, b, c){
 
 f(1, 2);
 ```
+### callee
+- arguments.callee返回此arguments对象所在的当前函数引用。<br>
+在使用函数递归调用时推荐使用arguments.callee代替函数名本身。
