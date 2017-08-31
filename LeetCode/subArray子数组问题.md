@@ -1,5 +1,5 @@
 ### 技巧：前缀和数组PrefixSum <br>
-- 【Maximunm subArray】  <br>
+- `【Maximunm subArray】 ` <br>
 max = prefixSum(j) - min(prefixSum(i));
 ```javascript
     public int maxSubArray(int[] nums) {
