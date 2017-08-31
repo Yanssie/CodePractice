@@ -17,6 +17,22 @@ max = prefixSum(j) - min(prefixSum(i));
         return max;
     }
 ```
+- 【minimun subArray】<br>
+min = prefixSum(j) - max(prefixSum(i));
+```javascript
+   public int minSubArray(List<Integer> nums) {
+        // 这里是MAX_VALUE
+        int min = Integer.MAX_VALUE;
+        int sum = 0, maxsum = 0;
+        int size = nums.size();
+        for(int i = 0; i < size; i++) {
+            sum += nums.get(i);
+            min = Math.min(min, sum - maxsum);
+            maxsum = Math.max(sum, maxsum);
+        }
+        return min;
+    }
+```
 - 【max two subArrays】<br>
 两个不重叠的subArray的和最大，返回最大值 <br>
 求出每个分界点的左边max subarray 和右边 maxsubarray，左右相加最大即max <br>
@@ -51,6 +67,36 @@ max = prefixSum(j) - min(prefixSum(i));
         return max;
     }
 ```
-- 【minimun subArray】<br>
-
+- 【subArray Sum = 0】<br>
+sum(i+1 ~ j) = prefixSum[j] - prefixSum[i] = 0; <br>
+if prefixSum(j) = prefixSum(i) then  <br>
+return [i+1, j] <br>
+判断时一定要加  **prefixSum.put(0, -1);**
+```javascript
+    public ArrayList<Integer> subarraySum(int[] nums) {
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        if(nums == null || nums.length == 0) {
+            return result;
+        }
+        int l = nums.length;
+        int sum = 0;
+        HashMap<Integer, Integer> prefixSum = new HashMap<Integer, Integer>();
+        // first is prefixsum, second is index
+        // 这句话一定要有
+        // 放入一个0 key，这样sum = 0的时候会触发else
+        prefixSum.put(0, -1);
+        for(int i = 0; i < l; i++) {
+            sum += nums[i];
+            if(!prefixSum.containsKey(sum)) {
+                prefixSum.put(sum, i);
+            } else{
+                int start = prefixSum.get(sum);
+                result.add(start + 1);
+                result.add(i);
+                return result;
+            }
+        }
+        return result;
+    }
+```
 - 【】
