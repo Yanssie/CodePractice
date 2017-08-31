@@ -1,5 +1,5 @@
 ### 技巧：前缀和数组PrefixSum <br>
-- `【Maximunm subArray】 ` <br>
+- 【Maximunm subArray】  <br>
 max = prefixSum(j) - min(prefixSum(i));
 ```javascript
     public int maxSubArray(int[] nums) {
@@ -105,6 +105,7 @@ prefix(j) - prefix(i) = k <br>
 如果存在，count += prefix(j)出现的次数 <br>
 **将相同的key put到HashMap中，会覆盖** <br>
 **map.getOrDefault(key, value)**
+### prefixSum会比原array多一个数，即index = -1, prefixSum = 0;
 ```javascript
     public int subarraySum(int[] nums, int k) {
         int count = 0;
@@ -124,3 +125,4 @@ prefix(j) - prefix(i) = k <br>
         return count;
     }
 ```
+
