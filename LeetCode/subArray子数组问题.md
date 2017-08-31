@@ -69,8 +69,8 @@ min = prefixSum(j) - max(prefixSum(i));
 ```
 - 【subArray Sum = 0】<br>
 sum(i+1 ~ j) = prefixSum[j] - prefixSum[i] = 0; <br>
-if prefixSum(j) = prefixSum(i) then  <br>
-return [i+1, j] <br>
+if prefixSum(j) = prefixSum(i) then  <br>
+返回任意满足条件的subarray的起始点和结束点 return [i+1, j] <br>
 判断时一定要加  **prefixSum.put(0, -1);**
 ```javascript
     public ArrayList<Integer> subarraySum(int[] nums) {
@@ -99,4 +99,28 @@ return [i+1, j] <br>
         return result;
     }
 ```
-- 【】
+- 【subArray Sum = k】返回满足条件的subarray个数 <br>
+prefix(j) - prefix(i) = k <br>
+存储prefix(j)及出现的次数到map中，检查map中是否存在prefix(j) - k <br>
+如果存在，count += prefix(j)出现的次数 <br>
+**将相同的key put到HashMap中，会覆盖** <br>
+**map.getOrDefault(key, value)**
+```javascript
+    public int subarraySum(int[] nums, int k) {
+        int count = 0;
+        int sum = 0;
+        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+        //一定要把0先put进去
+        map.put(0, 1);
+        for(int i = 0; i < nums.length; i++) {
+            sum += nums[i];
+            //如果前面出现sum-k，把sum-k在前面出现过的次数累加
+            if(map.containsKey(sum - k)) {
+                count += map.get(sum - k);
+            }
+            //put相同的key到map中会覆盖
+            map.put(sum, map.getOrDefault(sum, 0) + 1);
+        }
+        return count;
+    }
+```
